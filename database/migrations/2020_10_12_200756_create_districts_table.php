@@ -18,6 +18,8 @@ class CreateDistrictsTable extends Migration
             $table->string('division_id',10);
             $table->string('name',100);
             $table->string('slug',100)->unique();
+            $table->string('price');
+            $table->string('day');
             $table->timestamps();
         });
     }

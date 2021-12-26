@@ -43,7 +43,12 @@
                                       <input required type="text" name="name" placeholder="Division name" class="form-control">
                                   </div>
                               </div>
-                              
+                              <div class="form-group row">
+                                  <label class="col-form-label col-sm-2 text-sm-right">Price</label>
+                                  <div class="col-sm-10">
+                                      <input required type="text" name="price" placeholder="Price" class="form-control">
+                                  </div>
+                              </div>
                             </div>
                             <div class="modal-footer">
                                   <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
@@ -51,10 +56,8 @@
                             </div>
                           </form>
                           </div>
-                          
                         </div>
-                      </div> {{-- model end --}}
-
+                      </div>
                 </div>
                 <!-- Exportable Table -->
                 <div class="row clearfix">
@@ -74,6 +77,7 @@
                                                 <th>SL</th>
                                                 <th>Name</th>
                                                 <th>Slug</th>
+                                                <th>Price</th>
                                                 <th class="text-center">Action </th>
                                             </tr>
                                         </thead>
@@ -83,13 +87,11 @@
                                                     <td>{{$key+1}}</td>
                                                     <td>{{$division->name}}</td>
                                                     <td>{{$division->slug}}</td>
+                                                    <td>{{$division->price}} TK </td>
                                                     <td class="text-center">
                                                         <a class="btn btn-xs btn-warning" data-toggle="modal" data-target="#edit_{{$key}}"><i class="fa fa-edit"></i> Edit</a>
                                                     </td>
-                                                    
                                                 </tr>
-
-                                                <!-- Edit Modal -->
                                                 <div class="modal fade" id="edit_{{$key}}" role="dialog">
                                                   <div class="modal-dialog">
                                                   
@@ -110,7 +112,12 @@
                                                                 <input required type="text" name="name" value="{{$division->name}}" placeholder="division name" class="form-control">
                                                             </div>
                                                         </div>
-                                                        
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label col-sm-2 text-sm-right">Price</label>
+                                                            <div class="col-sm-10">
+                                                                <input required type="text" name="price" value="{{$division->price}}" placeholder="Price" class="form-control">
+                                                            </div>
+                                                        </div>
                                                       </div>
                                                       <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>

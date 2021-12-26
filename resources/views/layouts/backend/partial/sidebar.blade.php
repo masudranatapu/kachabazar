@@ -41,7 +41,7 @@
           </li>
 
           {{-- for location --}}
-          {{-- <li class="treeview">
+          <li class="treeview">
             <a href="">
               <i class="fa fa-map-marker"></i>
               <span>Location</span>
@@ -53,18 +53,17 @@
               <li class="{{ Request::is('admin/division*') ? 'active' : '' }}">
                   <a href="{{ route('admin.division.index') }}">
                       <i class="fa fa-circle"></i>
-                      <span>Division</span>
+                      <span>Division / Area</span>
                   </a>
               </li>
               <li class="{{ Request::is('admin/district*') ? 'active' : '' }}">
                   <a href="{{ route('admin.district.index') }}">
                       <i class="fa fa-circle"></i>
-                      <span>District</span>
+                      <span>District / Zone</span>
                   </a>
               </li>
-
             </ul>
-          </li> --}}
+          </li>
 
           {{-- for unit --}}
           {{-- <li class="treeview">

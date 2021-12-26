@@ -45,6 +45,8 @@ class DistrictController extends Controller
         $district = new District();
         $district->division_id = $request->division_id;
         $district->name = $request->name;
+        $district->day = $request->day;
+        $district->price = $request->price;
         $district->slug = $slug;
         $district->save();
 
@@ -70,6 +72,8 @@ class DistrictController extends Controller
 
         $district->division_id = $request->division_id;
         $district->name = $request->name;
+        $district->day = $request->day;
+        $district->price = $request->price;
         $district->slug = $slug;
         $district->save();
 
