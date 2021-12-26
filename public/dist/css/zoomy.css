@@ -1,0 +1,52 @@
+.zoom {height:330px; position: relative;}
+.zoom-main {
+	width:75%;
+    height:95%;
+    position:relative;
+    text-align:center;
+	float:left;
+	left:25%;
+}
+.zoom-thumb-hide .zoom-main {height:100%;}
+.zoom-main span {
+    background-position: 50% 50%;
+    background-repeat:none;
+    background-size:200%;
+    overflow: hidden;
+    position:absolute;
+    cursor: zoom-in;
+    border:none;
+    position: relative;
+    display:inline-block;
+    height:100%;
+}
+.zoom-right .zoom-main span {left:0;}
+.zoom-main img {
+    height:100%;
+    display:block; 
+    background:#fff;
+    transition: opacity .5s;
+}
+.zoom-main img:hover {opacity: 0;}
+.zoom-right .zoom-main{height:100%;float:left;padding-right:5px;}
+.zoom-thumb {text-align:center;padding:5px;width:25%;float:left;position:absolute;left:0;}
+.zoom-right .zoom-thumb {display:inline;}
+.zoom .zoom-thumb a {
+    margin:0 5px 5px 0;
+    padding:5px;
+    border:none;
+    height:100%;
+    display:inline-block;
+    cursor: pointer;
+}
+.zoom-right .zoom-thumb a {float:left;height:15%;display:inline-block;}
+.zoom .zoom-thumb a img {height:100%;border:1px solid #e8e8e8;width:100%;}
+.zoom-left .zoom-main, .zoom-left .zoom-thumb a{float:right;width:auto;}
+@media all and (max-width: 735px){
+    .zoom img{width:auto;max-width:100%;height:auto;}
+    .zoom .zoom-thumb a img {width:auto;}
+    .zoom-main, .zoom-thumb a{float:none !important;}
+    .zoom-main {height:auto !important;}
+    .zoom .zoom-thumb {display:block; height:100%;text-align:center !important;padding:5px;}
+    .zoom-thumb a {height:20% !important;display:inline-block !important;}
+}

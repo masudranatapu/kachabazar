@@ -1,0 +1,106 @@
+/*-----------product----------*/
+
+.productFormOption .form-check {
+    position: relative;
+    display: inline-block;
+    padding-left: 0.75rem;
+}
+/*-----------product end----------*/
+.customer_sidebar ul{
+	margin: 0;
+	padding: 0;
+}
+.customer_sidebar ul li{
+	border-bottom: 1px solid #d6d6d6;
+	display: block;
+	padding: 10px 0;
+}
+.custom_active {
+	color: #525252;
+}
+.customer_panel {
+    margin-bottom: 60px;
+}
+
+.card {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    /*font-size: 1.4rem;*/
+    margin-bottom: 3rem;
+}
+
+.card-header {
+    padding: 1.2rem 1.5rem;
+    background-color: #f5f5f5;
+    border-radius: 0;
+    color: #21293c;
+    border-color: #ddd;
+    font-weight: 700;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.card-body {
+    padding: 2rem 1.5rem;
+    border-top: 0;
+    border-radius: 0;
+    min-height: 135px;
+}
+
+.cart-summary {
+    padding: 1.4rem 1.8rem 2.2rem;
+    background: #fbfbfb;
+    border: 1px solid #ddd;
+    margin-bottom: 2.5rem;
+}
+.cart-summary h3 {
+    font-weight: 300;
+    font-size: 1.6rem;
+    margin-bottom: 1.3rem;
+}
+
+.cart-summary h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-top: 1px solid #cccccc;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+.cart-summary h4 a {
+    position: relative;
+    display: block;
+    color: inherit;
+    padding: .3rem .7rem .3rem 0;
+    line-height: 1.2;
+}
+.table-mini-cart tr td {
+    border: 0;
+    padding: 5px 0;
+    vertical-align: top;
+    border-top: 1px solid #ccc;
+}
+.cart-summary h4 {
+    font-size: 13px;
+    font-weight: 600;
+     border-top: none; 
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+.table.table-totals tfoot {
+    border-top: 1px solid #ccc;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.checkout-steps li {
+    display: block;
+}
+a {
+    color: #ff9400;
+}
+a:hover {
+    color: #525252;
+}
+.breadcrumb {
+    margin-top: 1rem;
+}

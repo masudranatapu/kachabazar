@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?de706bb1f2cd1743f1af5515b8c9fc20") format("truetype"),
+url("./flaticon.woff?de706bb1f2cd1743f1af5515b8c9fc20") format("woff"),
+url("./flaticon.woff2?de706bb1f2cd1743f1af5515b8c9fc20") format("woff2"),
+url("./flaticon.eot?de706bb1f2cd1743f1af5515b8c9fc20#iefix") format("embedded-opentype"),
+url("./flaticon.svg?de706bb1f2cd1743f1af5515b8c9fc20#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-checked:before {
+    content: "\f101";
+}
+.flaticon-grocery:before {
+    content: "\f102";
+}
+.flaticon-add-to-cart:before {
+    content: "\f103";
+}
+.flaticon-delivery-truck:before {
+    content: "\f104";
+}
