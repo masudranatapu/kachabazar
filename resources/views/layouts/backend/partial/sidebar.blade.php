@@ -223,6 +223,12 @@
                       <span>Slider</span>
                   </a>
               </li>
+              <li class="{{ Request::is('admin/payment*') ? 'active' : '' }}">
+                  <a href="{{ route('admin.payment.index') }}">
+                      <i class="fa fa-long-arrow-right"></i>
+                      <span>Payment Gatway</span>
+                  </a>
+              </li>
 
               <li class="{{ Request::is('admin/policy') ? 'active' : '' }}">
                   <a href="{{ route('admin.policy.index') }}">
@@ -247,24 +253,6 @@
                   <a href="{{ route('admin.website.index') }}">
                       <i class="fa fa-long-arrow-right"></i>
                       <span>Setting</span>
-                  </a>
-              </li>
-
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="">
-              <i class="fa fa-bell-slash"></i>
-              <span>Offline Selling </span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="{{ Request::is('admin/slider*') ? 'active' : '' }}">
-                  <a href="{{ route('admin.slider.index') }}">
-                    <i class="fa fa-long-arrow-right"></i>
-                    <span>Offline Sell Product</span>
                   </a>
               </li>
             </ul>

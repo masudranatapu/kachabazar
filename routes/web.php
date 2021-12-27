@@ -85,6 +85,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('brand', 'BrandController');
     Route::resource('division', 'DivisionController');
     Route::resource('district', 'DistrictController');
+    Route::resource('payment', 'PaymentController');
+    
+    Route::get('payment/active/{id}', 'PaymentController@paymentActive')->name('payment.active');
+    Route::get('payment/inactive/{id}', 'PaymentController@paymentInActive')->name('payment.inactive');
 
     // for product
     Route::resource('product', 'ProductController');
