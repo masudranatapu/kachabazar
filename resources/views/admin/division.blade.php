@@ -46,7 +46,7 @@
                               <div class="form-group row">
                                   <label class="col-form-label col-sm-2 text-sm-right">Price</label>
                                   <div class="col-sm-10">
-                                      <input required type="text" name="price" placeholder="Price" class="form-control">
+                                      <input required type="text" name="charge" placeholder="charge" class="form-control">
                                   </div>
                               </div>
                             </div>
@@ -87,7 +87,7 @@
                                                     <td>{{$key+1}}</td>
                                                     <td>{{$division->name}}</td>
                                                     <td>{{$division->slug}}</td>
-                                                    <td>{{$division->price}} TK </td>
+                                                    <td>{{$division->charge}} TK </td>
                                                     <td class="text-center">
                                                         <a class="btn btn-xs btn-warning" data-toggle="modal" data-target="#edit_{{$key}}"><i class="fa fa-edit"></i> Edit</a>
                                                     </td>
@@ -115,7 +115,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-form-label col-sm-2 text-sm-right">Price</label>
                                                             <div class="col-sm-10">
-                                                                <input required type="text" name="price" value="{{$division->price}}" placeholder="Price" class="form-control">
+                                                                <input required type="text" name="charge" value="{{$division->charge}}" placeholder="Price" class="form-control">
                                                             </div>
                                                         </div>
                                                       </div>

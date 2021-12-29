@@ -51,9 +51,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-form-label col-sm-3 text-sm-right">Price</label>
+                                                <label class="col-form-label col-sm-3 text-sm-right">charge</label>
                                                 <div class="col-sm-9">
-                                                    <input required type="text" name="price" placeholder="Price" class="form-control">
+                                                    <input required type="text" name="charge" placeholder="charge" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -108,7 +108,7 @@
                                                     <td>{{$key+1}}</td>
                                                     <td>{{$district->name}}</td>
                                                     <td>{{$district->Division->name}}</td>
-                                                    <td>{{$district->price}} TK</td>
+                                                    <td>{{$district->charge}} TK</td>
                                                     <td>{{$district->day}}</td>
                                                     <td class="text-center">
                                                         <a class="btn btn-md btn-primary" data-toggle="modal" data-target="#edit_{{$key}}"><i class="far fa-edit"></i> Edit</a>
@@ -145,7 +145,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-form-label col-sm-3 text-sm-right">Price</label>
                                                                         <div class="col-sm-9">
-                                                                            <input required type="text" name="price" value="{{$district->price}}" placeholder="Price" class="form-control">
+                                                                            <input required type="text" name="charge" value="{{$district->charge}}" placeholder="Price" class="form-control">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">

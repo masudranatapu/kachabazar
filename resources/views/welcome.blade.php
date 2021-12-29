@@ -1,6 +1,6 @@
 @extends('layouts.frontend.app')
 
-@section('title','Welcome to Garden Cloud')
+@section('title','Welcome to Kachabazar')
 
 @section('meta')
     @php

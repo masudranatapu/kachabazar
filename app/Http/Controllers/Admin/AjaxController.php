@@ -5,12 +5,22 @@ namespace App\Http\Controllers\Admin;
 use App\Product;
 use App\Purchase;
 use App\Sold;
+use App\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AjaxController extends Controller
 {
-    
+    public function paymentPhone(Request $request)
+    {
+        $paymentName = Payment::where('name', $request->payment_name)->first();
+        $payment_number = $paymentName->phone;
+        $data = [$payment_number];
+
+        return $data;
+
+    }
+
     // for code. to product
     public function product_code_ajax_book(Request $request)
     {

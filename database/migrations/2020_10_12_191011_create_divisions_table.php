@@ -17,7 +17,7 @@ class CreateDivisionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',100);
             $table->string('slug',100)->unique();
-            $table->string('price');
+            $table->string('charge');
             $table->timestamps();
         });
     }

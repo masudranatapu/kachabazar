@@ -31,7 +31,7 @@ class DivisionController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|unique:divisions',
-            'price' => 'required',
+            'charge' => 'required',
         ]);
 
         $slug = str_slug($request->name);
@@ -39,7 +39,7 @@ class DivisionController extends Controller
         $division = new Division();
         $division->name = $request->name;
         $division->slug = $slug;
-        $division->price = $request->price;
+        $division->charge = $request->charge;
         $division->save();
 
         Toastr::success('Division Create successfully.' ,'Success');
@@ -57,14 +57,14 @@ class DivisionController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
-            'price' => 'required',
+            'charge' => 'required',
         ]);
 
         $slug = str_slug($request->name);
 
         $division->name = $request->name;
         $division->slug = $slug;
-        $division->price = $request->price;
+        $division->charge = $request->charge;
         $division->save();
 
         Toastr::success('Division Create successfully.' ,'Success');

@@ -66,6 +66,8 @@ Route::post('/cancel', 'SslCommerzPaymentController@cancel');
 Route::post('/ipn', 'SslCommerzPaymentController@ipn');
 //SSLCOMMERZ END
 
+Route::post('/payment/phone', 'Admin\AjaxController@paymentPhone')->name('payment_phone');
+
 Auth::routes();
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
@@ -137,6 +139,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 Route::group(['as' => 'customer.', 'prefix' => 'customer', 'namespace' => 'Customer'], function () {
     Route::post('/check','CheckoutController@check')->name('check');
     Route::resource('checkout', 'CheckoutController');
+
+    Route::get('/division/district/ajax/{division_id}', 'CheckoutController@DivisionDistrictAjax');
+    Route::get('/district/division/ajax/{district_id}', 'CheckoutController@DistrictDivisionAjax');
+    Route::get('/thana/ajax/{district}', 'CheckoutController@thanaPrice');
+    Route::get('/another_thana/ajax/{id_district}', 'CheckoutController@anotherthanaPrice');
+
     Route::post('/review', 'WishlistController@review')->name('review');
 });
 

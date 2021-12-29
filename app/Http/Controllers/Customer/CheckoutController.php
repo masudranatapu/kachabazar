@@ -7,6 +7,9 @@ use App\Order;
 use App\Billingaddress;
 use App\Shipping_address;
 use Auth;
+use App\Division;
+use App\District;
+use App\Payment;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -95,7 +98,49 @@ class CheckoutController extends Controller
     {
         // for header
         $title = 'Checkout';
-        return view('customer.checkout',compact('title'));
+        $divisions = Division::orderBy('id', 'DESC')->get();
+        $districts = District:: orderBy('id')->latest()->get();
+        $payments = Payment::where('status', 1)->orderBy('id', 'ASC')->latest()->get();
+        return view('customer.checkout',compact('title', 'divisions', 'districts', 'payments'));
+    }
+    
+    // ajax for division and distric
+
+    public function DivisionDistrictAjax($division_id)
+    {
+        $districts = Division::findOrFail($division_id);
+        $charge = $districts->charge;        
+        
+        $district = District::where('division_id', $division_id)->orderBy('name', 'ASC')->get();
+        return $data = [$charge, $district];
+        // return json_encode($district);
+    }
+    public function DistrictDivisionAjax($district_id)
+    {
+        $districts = Division::findOrFail($district_id);
+        $charge = $districts->charge;        
+        
+        $district = District::where('division_id', $district_id)->orderBy('name', 'ASC')->get();
+        return $data = [$charge, $district];
+        // return json_encode($district);
+    }
+    
+    public function anotherthanaPrice($id_district)
+    {
+        $district = District::findOrFail($id_district);
+        $charge = $district->charge;
+        $days = $district->day;
+        return $data = [$charge, $days];
+        // return json_encode($charge);
+    }
+
+    public function thanaPrice($district)
+    {
+        $district = District::findOrFail($district);
+        $charge = $district->charge;
+        $days = $district->day;
+        return $data = [$charge, $days];
+        // return json_encode($charge);
     }
 
     /**
