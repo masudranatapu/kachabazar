@@ -26,6 +26,9 @@ class CreateOrdersTable extends Migration
             $table->string('waraper',5);
             $table->string('total',7);
             $table->string('payment_method',100);
+            $table->string('division_id',10)->nullable();
+            $table->string('district_id',10)->nullable();
+            $table->string('delivery_day');
             $table->string('transaction_id')->nullable();
             $table->string('status',22)->default('Pending');
             $table->string('order_status',22)->default('Pending');

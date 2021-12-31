@@ -4,7 +4,6 @@
     {{$title}}
 @endsection
 
-
 @section('meta')
 
 @endsection
@@ -39,7 +38,6 @@
 <section class="pad-tb-25 mt-10">
     <div class="container">
         <div class="row">
-
             <div class="col-md-3 eng">
                 {{-- for coustomer_sidebar --}}
                 @include('layouts.frontend.partial.coustomer_sidebar')
@@ -62,6 +60,7 @@
                                     <th>Pyment Method</th>
                                     <th>Pyment Status</th>
                                     <th>Status</th>
+                                    <th>Delivery Day</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -97,6 +96,7 @@
                                                 <span class="badge bg-info" style="color: white;">Order Pending</span>
                                             @endif
                                         </td>
+                                        <td>{{ $order->delivery_day }}</td>
                                         <td>
                                             @if ($order->order_status == 'Pending')
                                                 <a href="{{ route('customer.order_cancel',$order->id) }}" onclick="return confirm('Are you sure to cancel order?')" class="cencel_btn btn btn-danger btn-xs waves-effect">
@@ -111,20 +111,14 @@
                                             @endif
                                             <a href="{{ route('customer.order_view',$order->id) }}" class="cencel_btn btn btn-info btn-xs" > View details </a>
                                         </td>
-
-
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         {{$orders->onEachSide(2)->links()}}
                     </div>
-
                 </div>
-
-
             </div>
-
         </div>
     </div>
 </section>

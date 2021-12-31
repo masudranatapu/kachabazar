@@ -75,14 +75,10 @@
                                         <label>Email</label>
                                         <input type="email" class="form-control" name="billing_email" value="{{Auth::user()->email}}" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Phone</label>
-                                        <input required type="text" id="phone" class="form-control" name="billing_phone" value="{{Auth::user()->phone}}" required>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>City & District</label>
+                                                <label>Area / Division</label>
                                                 <select id="division_id" name="div_id" class="form-control" required>
                                                     <option value="">Select One</option>
                                                     @foreach($divisions as $division)
@@ -93,7 +89,7 @@
                                         </div>
                                         <div class="col-md-6" style="padding-right: 17px;">
                                             <div class="form-group">
-                                                <label>Area & Thana</label>
+                                                <label>Zone</label>
                                                 <select name="dis_id" id="district" class="form-control"  style="display:block">
 
                                                 </select>
@@ -102,13 +98,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Delivary Days</label>
-                                                <input type="text" readonly id="days" value="">
+                                                <input type="text" readonly id="days" name="billing_delivery_day" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Phone</label>
-                                                <input required type="text" id="phone" class="form-control" name="billing_phone" placeholder="Your Phone" required>
+                                                <input required type="text" id="phone" class="form-control" name="billing_phone" value="{{Auth::user()->phone}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -137,14 +133,10 @@
                                         <label>Email</label>
                                         <input type="email" class="form-control" name="shipping_email" value="{{Auth::user()->email}}" required >
                                     </div>
-                                    <div class="form-group">
-                                        <label>Phone</label>
-                                        <input required type="text" id="phone" class="form-control" name="shipping_phone" value="{{Auth::user()->phone}}" required>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>City & District</label>
+                                                <label>Area / Division</label>
                                                 <select id="id_division" name="s_div_id" class="form-control" >
                                                     <option value="">Select One</option>
                                                     @foreach($divisions as $division)
@@ -155,22 +147,21 @@
                                         </div>
                                         <div class="col-md-6" style="padding-right: 17px;">
                                         <div class="form-group">
-                                                <label>Thana</label>
+                                                <label>Zone</label>
                                                 <select id="id_district" name="s_dis_id" id="district" class="form-control"  style="display:block">
-                                                
-                                                </select>
+                                            </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Delivary Days</label>
-                                                <input type="text" readonly id="dayes" value="">
+                                                <input type="text" readonly id="dayes" name="shipping_delivery_day" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Phone</label>
-                                                <input type="text" id="phone" class="form-control" name="shipping_phone" placeholder="Phone Number">
+                                                <input required type="text" id="phone" class="form-control" name="shipping_phone" value="{{Auth::user()->phone}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -352,7 +343,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Division / Area </label>
+                                                <label>Area / Division </label>
                                                 <select id="division_id" name="div_id" class="form-control" required>
                                                     <option value="">Select One</option>
                                                     @foreach($divisions as $division)
@@ -372,7 +363,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Delivary Days</label>
-                                                <input type="text" readonly id="days" value="">
+                                                <input type="text" readonly id="days" name="billing_delivery_day" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -384,9 +375,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <textarea class="form-control" name="billing_address" placeholder="Your Address" required>
-
-                                        </textarea>
+                                        <textarea class="form-control" name="billing_address" placeholder="Your Address" required></textarea>
                                     </div>
                                     <div class="form-group">
                                         <button onclick="myAccountPass()" class="btn btn-success btn-hover">Create an Account ?</button>
@@ -397,10 +386,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="checkbox">
-                                {{-- <label><input type="checkbox" name="check_shipping" checked>Ship to this address</label> --}}
-                            </div>
+
                             <input type="button" onclick="myFunction()" class="mb-10 hover_input bg-success text-white form-control" value="Shipping Information">
+
                             <div id="myDIV" class="panel panel-default" style="display: none;">
                                 <div class="cart_table_area">
                                     <strong>
@@ -419,7 +407,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Division / Zone</label>
+                                                <label>Area / Division</label>
                                                 <select id="id_division" name="s_div_id" class="form-control" >
                                                     <option value="">Select One</option>
                                                     @foreach($divisions as $division)
@@ -439,7 +427,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Delivary Days</label>
-                                                <input type="text" readonly id="dayes" value="">
+                                                <input type="text" readonly id="dayes" name="shipping_delivery_day" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">

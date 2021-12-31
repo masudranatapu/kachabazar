@@ -170,14 +170,11 @@ class CheckoutController extends Controller
             $this->validate($request, [
                 'password' => 'required',
             ]);
-
             $user = User::where('phone', $request->billing_phone)->exists();
-
             if($user) {
                 Toastr::error('There is already an account with this phone number! Please login first!.' ,'Error');
                 return redirect()->back();
             }
-            
             $user = new User();
             $user->name = $request->billing_name;
             $user->email = $request->billing_email;
@@ -190,7 +187,6 @@ class CheckoutController extends Controller
             Auth::login($user);
             $user_id = Auth::user()->id;
         }
-
         if ($request->product_id) {
           $product_id =trim(implode(",",$request->product_id),",");
         } else {
@@ -244,6 +240,201 @@ class CheckoutController extends Controller
             $order->waraper = $waraper;
             $order->total = $total;
             $order->payment_method = $request->payment_method;
+            if($request->shipping_delivery_day == '') {
+                $order->delivery_day = $request->billing_delivery_day;
+            }else {
+                $order->delivery_day = $request->shipping_delivery_day;
+            }
+            $order->division_id = $request->div_id;
+            $order->district_id = $request->dis_id;
+            $order->transaction_id = uniqid();
+            $order->save();
+
+            // for billing address
+            $billingaddress = new Billingaddress();
+            $billingaddress->user_id = Auth::id();
+            $billingaddress->order_code = $order_code;
+            $billingaddress->name = $request->billing_name;
+            $billingaddress->phone = $request->billing_phone;
+            $billingaddress->email = $request->billing_email;
+            $billingaddress->address = $request->billing_address;
+            $billingaddress->save();
+
+            // for Shipping address
+            $shipping_address = new Shipping_address();
+            $shipping_address->user_id = Auth::id();
+            $shipping_address->order_code = $order_code;
+            if($shipping_address->name == '') {
+                $shipping_address->name = $request->billing_name;
+            }else {
+                $shipping_address->name = $request->shipping_name;
+            }
+            if($shipping_address->phone == '') {
+                $shipping_address->phone = $request->billing_phone;
+            }else {
+                $shipping_address->phone = $request->shipping_phone;
+            }
+            if($shipping_address->email == '') {
+                $shipping_address->email = $request->billing_email;
+            }else {
+                $shipping_address->email = $request->shipping_email;
+            }
+            if($shipping_address->address == '') {
+                $shipping_address->address = $request->billing_address;
+            }else {
+                $shipping_address->address = $request->shipping_address;
+            }
+            $shipping_address->save();
+
+            session()->forget('cart');
+
+            Toastr::success('Order done successfully.' ,'Success');
+            return redirect()->route('customer.my_order');
+        }elseif($request->payment_method=="Bkash"){
+            $order = new Order();
+            $order->user_id = Auth::id();
+            $order->order_code = $order_code;
+            $order->product_id = $product_id;
+            $order->size_id = $size_id;
+            $order->colour_id = $colour_id;
+            $order->quantity = $quantity;
+            $order->subtotal = $request->subtotal;
+            $order->shipping_charge = $request->shipping_charge;
+            $order->waraper = $waraper;
+            $order->total = $total;
+            $order->payment_method = $request->payment_method;
+            if($request->shipping_delivery_day == '') {
+                $order->delivery_day = $request->billing_delivery_day;
+            }else {
+                $order->delivery_day = $request->shipping_delivery_day;
+            }
+            $order->division_id = $request->div_id;
+            $order->district_id = $request->dis_id;
+            $order->transaction_id = uniqid();
+            $order->save();
+
+            // for billing address
+            $billingaddress = new Billingaddress();
+            $billingaddress->user_id = Auth::id();
+            $billingaddress->order_code = $order_code;
+            $billingaddress->name = $request->billing_name;
+            $billingaddress->phone = $request->billing_phone;
+            $billingaddress->email = $request->billing_email;
+            $billingaddress->address = $request->billing_address;
+            $billingaddress->save();
+
+            // for Shipping address
+            $shipping_address = new Shipping_address();
+            $shipping_address->user_id = Auth::id();
+            $shipping_address->order_code = $order_code;
+            if($shipping_address->name == '') {
+                $shipping_address->name = $request->billing_name;
+            }else {
+                $shipping_address->name = $request->shipping_name;
+            }
+            if($shipping_address->phone == '') {
+                $shipping_address->phone = $request->billing_phone;
+            }else {
+                $shipping_address->phone = $request->shipping_phone;
+            }
+            if($shipping_address->email == '') {
+                $shipping_address->email = $request->billing_email;
+            }else {
+                $shipping_address->email = $request->shipping_email;
+            }
+            if($shipping_address->address == '') {
+                $shipping_address->address = $request->billing_address;
+            }else {
+                $shipping_address->address = $request->shipping_address;
+            }
+            $shipping_address->save();
+
+            session()->forget('cart');
+            Toastr::success('Order done successfully.' ,'Success');
+            return redirect()->route('customer.my_order');
+        }elseif($request->payment_method=="Nagad"){
+            $order = new Order();
+            $order->user_id = Auth::id();
+            $order->order_code = $order_code;
+            $order->product_id = $product_id;
+            $order->size_id = $size_id;
+            $order->colour_id = $colour_id;
+            $order->quantity = $quantity;
+            $order->subtotal = $request->subtotal;
+            $order->shipping_charge = $request->shipping_charge;
+            $order->waraper = $waraper;
+            $order->total = $total;
+            $order->payment_method = $request->payment_method;
+            if($request->shipping_delivery_day == '') {
+                $order->delivery_day = $request->billing_delivery_day;
+            }else {
+                $order->delivery_day = $request->shipping_delivery_day;
+            }
+            $order->division_id = $request->div_id;
+            $order->district_id = $request->dis_id;
+            $order->transaction_id = uniqid();
+            $order->save();
+
+            // for billing address
+            $billingaddress = new Billingaddress();
+            $billingaddress->user_id = Auth::id();
+            $billingaddress->order_code = $order_code;
+            $billingaddress->name = $request->billing_name;
+            $billingaddress->phone = $request->billing_phone;
+            $billingaddress->email = $request->billing_email;
+            $billingaddress->address = $request->billing_address;
+            $billingaddress->save();
+
+            // for Shipping address
+            $shipping_address = new Shipping_address();
+            $shipping_address->user_id = Auth::id();
+            $shipping_address->order_code = $order_code;
+            if($shipping_address->name == '') {
+                $shipping_address->name = $request->billing_name;
+            }else {
+                $shipping_address->name = $request->shipping_name;
+            }
+            if($shipping_address->phone == '') {
+                $shipping_address->phone = $request->billing_phone;
+            }else {
+                $shipping_address->phone = $request->shipping_phone;
+            }
+            if($shipping_address->email == '') {
+                $shipping_address->email = $request->billing_email;
+            }else {
+                $shipping_address->email = $request->shipping_email;
+            }
+            if($shipping_address->address == '') {
+                $shipping_address->address = $request->billing_address;
+            }else {
+                $shipping_address->address = $request->shipping_address;
+            }
+            $shipping_address->save();
+
+            session()->forget('cart');
+
+            Toastr::success('Order done successfully.' ,'Success');
+            return redirect()->route('customer.my_order');
+        }elseif($request->payment_method=="Rocket"){
+            $order = new Order();
+            $order->user_id = Auth::id();
+            $order->order_code = $order_code;
+            $order->product_id = $product_id;
+            $order->size_id = $size_id;
+            $order->colour_id = $colour_id;
+            $order->quantity = $quantity;
+            $order->subtotal = $request->subtotal;
+            $order->shipping_charge = $request->shipping_charge;
+            $order->waraper = $waraper;
+            $order->total = $total;
+            $order->payment_method = $request->payment_method;
+            if($request->shipping_delivery_day == '') {
+                $order->delivery_day = $request->billing_delivery_day;
+            }else {
+                $order->delivery_day = $request->shipping_delivery_day;
+            }
+            $order->division_id = $request->div_id;
+            $order->district_id = $request->dis_id;
             $order->transaction_id = uniqid();
             $order->save();
 
@@ -340,6 +531,9 @@ class CheckoutController extends Controller
             $order->waraper = $waraper;
             $order->total = $total;
             $order->payment_method = $request->payment_method;
+            $order->delivery_day = $request->billing_delivery_day;
+            $order->division_id = $request->div_id;
+            $order->district_id = $request->dis_id;
             $order->transaction_id = $post_data['tran_id'];
             $order->save();
 
@@ -361,6 +555,7 @@ class CheckoutController extends Controller
             $shipping_address->phone = $request->shipping_phone;
             $shipping_address->email = $request->shipping_email;
             $shipping_address->address = $request->shipping_address;
+            $shipping_address->delivery_day = $request->billing_delivery_day;
             $shipping_address->save();
 
             $sslc = new SslCommerzNotification();

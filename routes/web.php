@@ -73,6 +73,8 @@ Auth::routes();
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+    // order search
+    Route::get('order/searching', 'DashboardController@orderSearch')->name('order.search');
     // for gift
     Route::resource('category', 'CategoryController');
     Route::get('/category-search', 'CategoryController@category_search')->name('category_search');
